@@ -13,7 +13,7 @@ class Found(Thread):
 		for i in lst:
 			if i.lower() in found_me:
 				print("Funny Word Found")
-				sleep(randint(0, 2))
+				sleep(randint(25, 30))
 
 
 class Consonant(Thread):
@@ -32,6 +32,8 @@ c = Consonant()
 # c.run()
 
 v.start()
+print("between")
+sleep(randint(0, 3))
 c.start()
 
 v.join()
