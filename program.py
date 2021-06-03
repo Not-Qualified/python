@@ -1,3 +1,5 @@
+# Use - Python 3.8.5 or Above
+
 # Have Used both method for thread - with threading.Thread and concurrent.futures
 
 # Although, threading is suited for I/O bound task, Factorial Count is Much more CPU
@@ -48,13 +50,15 @@ def manipulate_str(cs_str):
 	cs_str = re.split(" |\n", cs_str)
 
 	now = datetime.now()
-	file = open(f"test-{now.strftime('%d-%m-%Y@%H-%M')}.txt", "a+")
-	for i in cs_str:
-		if bool(re.search(r'\d', i)):
-			file.write(f"{i}\n")
-	file.close()
-
-	print("String Manipulated and Output Pipelined to Text File")
+	try:
+		file = open(f"test-{now.strftime('%d-%m-%Y@%H-%M')}.txt", "a+")
+		for i in cs_str:
+			if bool(re.search(r'\d', i)):
+				file.write(f"{i}\n")
+		file.close()
+		print("String Manipulated and Output Pipelined to Text File")
+	except:
+		print("Something Went Wrong, Check File Permissions")
 
 
 def factorial(num_range):
