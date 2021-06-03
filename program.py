@@ -54,6 +54,8 @@ def manipulate_str(cs_str):
 			file.write(f"{i}\n")
 	file.close()
 
+	print("String Manipulated and Output Pipelined to Text File")
+
 
 def factorial(num_range):
 	# print([*num_range])
@@ -73,7 +75,6 @@ while num < 1:
 
 th = len(str(num))
 thread_slices = [range(1, num+1)[i::th] for i in range(th)]
-print(thread_slices)
 
 factoid = 1
 with concurrent.futures.ThreadPoolExecutor() as executor:
@@ -83,6 +84,9 @@ with concurrent.futures.ThreadPoolExecutor() as executor:
 		factoid *= result
 
 print(f"Factorial of {num} is {factoid}")
+
+print("\n\n")
+
 print(f"{len(thread_slices)} thread(s) created for factorial operation")
 
 m = Thread(target=manipulate_str, args=[cs_str])
